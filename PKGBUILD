@@ -76,6 +76,7 @@ validpgpkeys=(
 
 build() {
     cd "$pkgname-$pkgver-v$pkgver"
+    sed -i "s%c_rehash%openssl rehash%g" plugins_tools/eid-viewer/Makefile.in
     ./configure --prefix=/usr --libexecdir=/usr/bin
     make
 }
